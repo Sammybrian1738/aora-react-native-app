@@ -56,6 +56,8 @@ export default function GlobalProvider({ children }: PropsWithChildren) {
   return (
     <GlobalContext.Provider
       value={{ isLoggedIn, setIsLoggedIn, user, setUser, isLoading }}
-    ></GlobalContext.Provider>
+    >
+      {children}
+    </GlobalContext.Provider>
   );
 }
