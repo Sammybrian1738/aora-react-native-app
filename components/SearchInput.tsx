@@ -10,14 +10,14 @@ type SearchInputProps<T = Record<string, any>> = {
   otherStyles?: string;
 } & T;
 
-const SearchInput = <T extends Record<string, any>>({
+const SearchInput: React.FC<SearchInputProps> = ({
   title,
   value,
   placeholder,
   handleChangeText,
   otherStyles,
   ...rest
-}: SearchInputProps) => {
+}) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (

@@ -9,10 +9,7 @@ type EmptyStateProps<T = Record<string, any>> = {
   subtitle: string;
 } & T;
 
-const EmptyState = <T extends Record<string, any>>({
-  title,
-  subtitle,
-}: EmptyStateProps) => {
+const EmptyState: React.FC<EmptyStateProps> = ({ title, subtitle }) => {
   return (
     <View className="justify-center items-center px-4">
       <Image

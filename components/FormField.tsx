@@ -10,14 +10,14 @@ type FormFieldProps<T = Record<string, any>> = {
   otherStyles?: string;
 } & T;
 
-const FormField = <T extends Record<string, any>>({
+const FormField: React.FC<FormFieldProps> = ({
   title,
   value,
   placeholder,
   handleChangeText,
   otherStyles,
   ...rest
-}: FormFieldProps) => {
+}) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (

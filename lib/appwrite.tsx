@@ -119,3 +119,21 @@ export const getAllPosts = async () => {
     }
   }
 };
+
+export const getLatestPosts = async () => {
+  try {
+    const posts = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.videoCollectionId,
+      [Query.orderDesc("$createdAt"), Query.limit(7)]
+    );
+
+    return posts.documents;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(error.message);
+    } else {
+      throw new Error("An unknown error occurred.");
+    }
+  }
+};
