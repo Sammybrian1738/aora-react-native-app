@@ -102,3 +102,20 @@ export const getCurrentUser = async () => {
     return null; // Return null for unauthenticated users
   }
 };
+
+export const getAllPosts = async () => {
+  try {
+    const posts = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.videoCollectionId
+    );
+
+    return posts.documents;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(error.message);
+    } else {
+      throw new Error("An unknown error occurred.");
+    }
+  }
+};
